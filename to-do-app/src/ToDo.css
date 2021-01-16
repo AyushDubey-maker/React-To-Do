@@ -1,0 +1,10 @@
+.todo_list{
+    text-align: center;
+    
+}
+.delete:hover{
+    cursor: pointer;
+}
+.edit_button:hover{
+    cursor: pointer;
+}
