@@ -1,0 +1,39 @@
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 150px;
+    border: 1px solid lightgray;
+    width: 500px;
+}
+.register>img{
+    margin-top: 20px;
+}
+.register_form{
+
+  width: 400px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 30px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.input_register{
+    margin: 10px !important;
+}
+input{
+    margin: 10px;
+
+}
+label{
+    margin-left: 5px;
+}
+.register_button{
+    margin-top: 10px !important;
+    width: 60%;
+    font-size: small !important;
+}

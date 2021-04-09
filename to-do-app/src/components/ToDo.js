@@ -6,9 +6,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import CancelIcon from '@material-ui/icons/Cancel';
 import './ToDo.css'
-import db from './firebase'
+
 import {makeStyles} from '@material-ui/core/styles'
 import firebase from 'firebase'
+import { db } from '../firebase';
 const useStyles = makeStyles((theme) => ({
     paper: {
       position: 'absolute',
@@ -23,19 +24,21 @@ function ToDo(props) {
     const classes=useStyles();
   const [open,setOpen]=useState(false);
   const [input,setInput]=useState('');
+  const user=firebase.auth().currentUser
   const handleOpen=()=>{
       setOpen(true)
   }
   const handleClose=()=>{
       setOpen(false)
   }
+
+  // Update a data in Firebase
   const updateTodo=()=>{
-  db.collection('todos').doc(props.todo.id).set({
+  db.collection('todos').doc(user?.uid).collection('user-todo').doc(props.todo.id).set({
     todo:input
   },{merge:true})
     setOpen(false)
-
-  }
+}
   const t = firebase.firestore.Timestamp.fromDate(new Date());
 
   // Timestamp to Date
@@ -46,7 +49,7 @@ function ToDo(props) {
                 + currentdate.getFullYear() 
     return (
         <>
-        <Modal open={open} onClose={handleClose}>
+        <Modal open={open} onClose={handleClose} className="modal">
             <div className={classes.paper}>
             <CancelIcon onClick={handleClose} color="secondary"></CancelIcon>
             <h2>Update To-Do</h2>
@@ -62,7 +65,7 @@ function ToDo(props) {
            <ListItemText primary={props.todo.todo} secondary={datetime} />
            </ListItem>
            <EditIcon onClick={handleOpen} color="primary" className="edit_button">Edit Me</EditIcon>
-            <DeleteIcon onClick={event=>db.collection('todos').doc(props.todo.id).delete()} color="secondary" className="delete"></DeleteIcon>
+            <DeleteIcon onClick={event=>db.collection('todos').doc(user?.uid).collection('user-todo').doc(props.todo.id).delete()} color="secondary" className="delete"></DeleteIcon>
         </List>
         
        </>

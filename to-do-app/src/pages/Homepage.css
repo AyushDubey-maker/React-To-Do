@@ -1,0 +1,26 @@
+.home-page>form{
+    width: 50%;
+    margin:auto
+}
+.home-page-header{
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+.home-page-header>h1{
+    margin-right: 16px;
+
+}
+.user-title{
+    font-size: 18px;
+  
+    width: 50%;
+    margin:auto;
+    padding: 6px;
+    margin-bottom: 12px;
+}
+.user-title>strong{
+    color: green;
+}
