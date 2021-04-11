@@ -9,3 +9,9 @@ This is to-do application built using Firebase and React.
 
 > 2. User Register
 <img src="/react-todo-2.png" height="350px"/>
+
+<hr/>
+<img src="/react-todo-3.png" height="350px"/>
+
+<hr/>
+<img src="/react-todo-4.png" height="350px"/>
